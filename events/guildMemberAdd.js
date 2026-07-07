@@ -15,6 +15,17 @@ const config = require('../config.js');
 module.exports = {
     name: 'guildMemberAdd',
     async execute(member) {
+        // Asignar autoroles
+        if (config.autoroles && config.autoroles.length > 0) {
+            try {
+                await member.roles.add(config.autoroles);
+                console.log(`✅ Autoroles asignados a ${member.user.tag}`);
+            } catch (error) {
+                console.error(`❌ Error asignando autoroles a ${member.user.tag}:`, error);
+            }
+        }
+
+        // Mensaje de bienvenida
         const canal = member.guild.channels.cache.get(config.canales.bienvenida);
         if (!canal) return;
 
@@ -34,7 +45,6 @@ module.exports = {
                 new TextDisplayBuilder().setContent(`💬 *"${mensaje}"*`)
             );
 
-        // Solo agrega la imagen si ya se configuró una URL en config.js
         if (config.imagenBienvenida && config.imagenBienvenida.startsWith('http')) {
             contenedor.addMediaGalleryComponents(
                 new MediaGalleryBuilder().addItems(
