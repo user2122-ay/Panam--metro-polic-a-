@@ -14,17 +14,10 @@ primary_region = 'ams'
 [http_service]
   internal_port = 8080
   force_https = true
-  auto_stop_machines = 'stop'
+  auto_stop_machines = false
   auto_start_machines = true
-  min_machines_running = 0
-  processes = ['app']
-
-[[services]]
-  protocol = 'tcp'
-  internal_port = 8080
-  auto_stop_machines = 'off'
   min_machines_running = 1
-  ports = []
+  processes = ['app']
 
 [[vm]]
   cpu_kind = 'shared'
