@@ -1,0 +1,18 @@
+app = "policia-panama-bot"
+primary_region = "mia"
+
+[build]
+
+[env]
+  PORT = "8080"
+
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 1
+  memory_mb = 256
+
+[[services]]
+  auto_stop_machines = false
+  min_machines_running = 1
+  protocol = "tcp"
+  internal_port = 8080
