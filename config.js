@@ -18,4 +18,10 @@ module.exports = {
 
     // Pega la URL de tu imagen aquí cuando la tengas
     imagenBienvenida: '',
+ 
+    autoroles: [
+        '1523715977370402916',
+        '1523716317306163250',
+        '1523716577193627860',
+    ],
 };
