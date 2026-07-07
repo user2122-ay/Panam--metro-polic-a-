@@ -18,14 +18,5 @@ module.exports = {
     // Imagen del embed de bienvenida (pega la URL cuando la tengas)
     imagenBienvenida: 'PON_AQUI_LA_URL_DE_TU_IMAGEN',
 
-    // Panel de roles: edita esta lista para agregar/quitar botones sin tocar el comando
-    panelRoles: {
-        titulo: 'Elige tu subdivisión',
-        descripcion: 'Haz clic en un botón para obtener o quitar el rol.',
-        roles: [
-            { id: 'ID_DEL_ROL_1', etiqueta: 'Subdivisión 1' },
-            { id: 'ID_DEL_ROL_2', etiqueta: 'Subdivisión 2' },
-            { id: 'ID_DEL_ROL_3', etiqueta: 'Subdivisión 3' },
-        ],
-    },
+    
 };
