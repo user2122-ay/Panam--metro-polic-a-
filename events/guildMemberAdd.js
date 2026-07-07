@@ -1,4 +1,15 @@
-const { EmbedBuilder } = require('discord.js');
+const {
+    ContainerBuilder,
+    TextDisplayBuilder,
+    SeparatorBuilder,
+    SeparatorSpacingSize,
+    MediaGalleryBuilder,
+    MediaGalleryItemBuilder,
+    ActionRowBuilder,
+    ButtonBuilder,
+    ButtonStyle,
+    MessageFlags,
+} = require('discord.js');
 const config = require('../config.js');
 
 module.exports = {
@@ -10,21 +21,44 @@ module.exports = {
         const lista = config.mensajesMotivadores;
         const mensaje = lista[Math.floor(Math.random() * lista.length)];
 
-        const embed = new EmbedBuilder()
-            .setColor(0x1E3A8A)
-            .setTitle('🚔 ¡Bienvenido a la Policía Nacional de Panamá!')
-            .setDescription(
-                `¡Hola ${member}! Es un honor tenerte con nosotros.\n\n` +
-                `💬 *"${mensaje}"*\n\n` +
-                `Para comenzar tu camino en la institución:\n` +
-                `📋 Funciones y normativa: <#${config.canales.funciones}>\n` +
-                `🪪 Subdivisiones disponibles: <#${config.canales.subdivision}>\n` +
-                `📝 Postulación a una subdivisión: <#${config.canales.postulacion}>`
+        const contenedor = new ContainerBuilder()
+            .setAccentColor(0x1E3A8A)
+            .addTextDisplayComponents(
+                new TextDisplayBuilder().setContent('# 🚔 Bienvenido a la Policía Nacional de Panamá')
             )
-            .setImage(config.imagenBienvenida)
-            .setFooter({ text: 'Policía Nacional de Panamá', iconURL: member.guild.iconURL() })
-            .setTimestamp();
+            .addTextDisplayComponents(
+                new TextDisplayBuilder().setContent(`¡Hola ${member}! Es un honor tenerte con nosotros.`)
+            )
+            .addSeparatorComponents(new SeparatorBuilder().setSpacing(SeparatorSpacingSize.Small))
+            .addTextDisplayComponents(
+                new TextDisplayBuilder().setContent(`💬 *"${mensaje}"*`)
+            );
 
-        canal.send({ content: `${member}`, embeds: [embed] }).catch(console.error);
+        // Solo agrega la imagen si ya se configuró una URL en config.js
+        if (config.imagenBienvenida && config.imagenBienvenida.startsWith('http')) {
+            contenedor.addMediaGalleryComponents(
+                new MediaGalleryBuilder().addItems(
+                    new MediaGalleryItemBuilder().setURL(config.imagenBienvenida)
+                )
+            );
+        }
+
+        contenedor
+            .addSeparatorComponents(new SeparatorBuilder().setSpacing(SeparatorSpacingSize.Small))
+            .addTextDisplayComponents(
+                new TextDisplayBuilder().setContent('Para comenzar tu camino en la institución, revisa:')
+            )
+            .addActionRowComponents(
+                new ActionRowBuilder().addComponents(
+                    new ButtonBuilder().setLabel('📋 Funciones').setStyle(ButtonStyle.Link).setURL(config.enlaces.funciones),
+                    new ButtonBuilder().setLabel('🪪 Subdivisiones').setStyle(ButtonStyle.Link).setURL(config.enlaces.subdivision),
+                    new ButtonBuilder().setLabel('📝 Postulación').setStyle(ButtonStyle.Link).setURL(config.enlaces.postulacion)
+                )
+            );
+
+        canal.send({
+            components: [contenedor],
+            flags: MessageFlags.IsComponentsV2,
+        }).catch(console.error);
     }
 };
