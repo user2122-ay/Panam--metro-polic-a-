@@ -1,18 +1,32 @@
-app = "policia-panama-bot"
-primary_region = "mia"
+# fly.toml app configuration file generated for panam--metro-policia on 2026-07-07T01:54:32Z
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'panam--metro-policia'
+primary_region = 'ams'
 
 [build]
 
 [env]
-  PORT = "8080"
+  PORT = '8080'
 
-[[vm]]
-  cpu_kind = "shared"
-  cpus = 1
-  memory_mb = 256
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = 'stop'
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
 
 [[services]]
-  auto_stop_machines = false
-  min_machines_running = 1
-  protocol = "tcp"
+  protocol = 'tcp'
   internal_port = 8080
+  auto_stop_machines = 'off'
+  min_machines_running = 1
+  ports = []
+
+[[vm]]
+  cpu_kind = 'shared'
+  cpus = 1
+  memory_mb = 256
