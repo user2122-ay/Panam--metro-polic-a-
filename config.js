@@ -16,16 +16,15 @@ module.exports = {
         'Servir a la comunidad es el mayor honor. Hoy comienza tu historia con nosotros.',
     ],
 
-    // Pega la URL de tu imagen aquí cuando la tengas
     imagenBienvenida: '',
- 
+
     autoroles: [
         '1523715977370402916',
         '1523716317306163250',
         '1523716577193627860',
     ],
+
     jerarquia: {
-        // Roles divisorios (solo visuales, no se asignan a usuarios)
         divisores: {
             oficiales: '1523572960290541568',
             suboficiales: '1523711481634488360',
@@ -33,7 +32,6 @@ module.exports = {
             unidades: '1523714120329986140',
         },
 
-        // Rangos ordenados del más alto al más bajo (útil para comandos de ascenso/descenso)
         rangos: [
             { id: '1523573395978190848', nombre: 'Director General' },
             { id: '1523573665982058557', nombre: 'SubDirector General' },
@@ -52,7 +50,6 @@ module.exports = {
             { id: '1523713987949105305', nombre: 'Cadete' },
         ],
 
-        // Unidades especiales (no siguen la jerarquía de rango)
         unidades: [
             { id: '1523714460475326516', nombre: 'Unidad de la U.C.M' },
             { id: '1523714647469850746', nombre: 'Unidad de la U.T.O.A' },
@@ -63,7 +60,9 @@ module.exports = {
             { id: '1523715607781048372', nombre: 'Unidad de la D.I.J' },
         ],
     },
-    rolAutorizado: '1523573395978190848', // Director General (puede enviar el panel)
+
+    postulaciones: {
+        rolAutorizado: '1523573395978190848', // Director General (puede enviar el panel)
 
         rolesAutorizadosRevision: [
             '1523573395978190848', // Director General
@@ -75,7 +74,7 @@ module.exports = {
             '1523574922327101500', // Teniente
             '1523575112270614538', // Subteniente
         ],
-    
+
         canales: {
             panel: '1523548265340076184',
             pendientes: '1523556743605391492',
