@@ -131,4 +131,28 @@ module.exports = {
             { n: 30, texto: '¿Por qué deberíamos escogerte a ti y no a otro postulante?', puntos: 0, estilo: 'Paragraph' },
         ],
     },
+    placas: {
+        rolesAutorizados: [
+            '1523573395978190848', // Director General
+            '1523573665982058557', // SubDirector General
+            '1523573834077180005', // Comisionado
+            '1523574021344591916', // Sub Comisionado
+            '1523574454699954337', // Mayor
+            '1523574599907016765', // Capitán
+            '1523574922327101500', // Teniente
+            '1523575112270614538', // Subteniente
+        ],
+
+        letraDefault: 'A', // Policía normal, sin subdivisión
+
+        subdivisiones: {
+            '1523714460475326516': 'M', // U.C.M (Mike)
+            '1523714647469850746': 'T', // U.T.O.A (Tango)
+            '1523715087674769459': 'C', // U.C.A.N (Charlie)
+            '1523715231728140358': 'E', // U.T.E (Echo)
+            '1523715360560251042': 'F', // U.F.E.C (Foxtrot)
+            '1523715469889110067': 'L', // Lince (Lima)
+            '1523715607781048372': 'J', // D.I.J (Juliet)
+        },
+    },
 };
