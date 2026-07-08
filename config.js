@@ -63,9 +63,19 @@ module.exports = {
             { id: '1523715607781048372', nombre: 'Unidad de la D.I.J' },
         ],
     },
-    postulaciones: {
-        rolAutorizado: '1523573395978190848', // Director General
+    rolAutorizado: '1523573395978190848', // Director General (puede enviar el panel)
 
+        rolesAutorizadosRevision: [
+            '1523573395978190848', // Director General
+            '1523573665982058557', // SubDirector General
+            '1523573834077180005', // Comisionado
+            '1523574021344591916', // Sub Comisionado
+            '1523574454699954337', // Mayor
+            '1523574599907016765', // Capitán
+            '1523574922327101500', // Teniente
+            '1523575112270614538', // Subteniente
+        ],
+    
         canales: {
             panel: '1523548265340076184',
             pendientes: '1523556743605391492',
