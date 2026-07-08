@@ -239,8 +239,12 @@ async function finalizarPostulacion(interaction, estado) {
 // ---------- Flujo de revisión (Director General) ----------
 
 async function manejarBotonDecision(interaction, decision, postulacionId) {
-    if (!interaction.member.roles.cache.has(config.postulaciones.rolAutorizado)) {
-        return interaction.reply({ content: '⛔ No tienes permiso para revisar postulaciones.', ephemeral: true });
+    const tienePermiso = interaction.member.roles.cache.some(rol =>
+        config.postulaciones.rolesAutorizadosRevision.includes(rol.id)
+    );
+
+    if (!tienePermiso) {
+        return interaction.reply({ content: '⛔ Solo un Oficial puede aceptar o rechazar postulaciones.', ephemeral: true });
     }
 
     const modal = new ModalBuilder()
