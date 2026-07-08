@@ -326,6 +326,19 @@ async function manejarModalDecision(interaction, decision, postulacionId) {
         await canalResultados.send({ components: [contenedorResultado], flags: MessageFlags.IsComponentsV2 });
     }
 
+    // Actualiza el mensaje original (el que tenía los botones Aceptar/Rechazar) quitando los botones
+    if (interaction.message) {
+        const contenedorFinal = new ContainerBuilder()
+            .setAccentColor(decision === 'aceptar' ? 0x22C55E : 0xEF4444)
+            .addTextDisplayComponents(new TextDisplayBuilder().setContent(`### ⚖️ Postulación de ${postulacion.robloxUsuario}`))
+            .addTextDisplayComponents(new TextDisplayBuilder().setContent(
+                `${decision === 'aceptar' ? '✅ **Aceptada**' : '❌ **Rechazada**'} por ${interaction.user.tag}\n**Puntuación:** ${puntuacion} pts — ${rango.categoria}`
+            ));
+        await interaction.message.edit({ components: [contenedorFinal], flags: MessageFlags.IsComponentsV2 }).catch(error => {
+            console.error('❌ Error quitando botones del mensaje de decisión:', error);
+        });
+    }
+
     await interaction.editReply({ content: `✅ Postulación ${decision === 'aceptar' ? 'aceptada' : 'rechazada'} correctamente.` });
 }
 
