@@ -58,21 +58,24 @@ module.exports = {
             { id: '1523715360560251042', nombre: 'Unidad de la U.F.E.C' },
             { id: '1523715469889110067', nombre: 'Unidad Lince' },
             { id: '1523715607781048372', nombre: 'Unidad de la D.I.J' },
+            { id: '1525773218638729256', nombre: 'Fuerza ALFA' },
+            { id: '1540766628495495280', nombre: 'Unidad de la D.N.I.P' },
+            { id: '1540938166725382204', nombre: 'Unidad de la D.N.O.T' },
         ],
     },
 
     postulaciones: {
-        rolAutorizado: '1523573395978190848', // Director General (puede enviar el panel)
+        rolAutorizado: '1523573395978190848',
 
         rolesAutorizadosRevision: [
-            '1523573395978190848', // Director General
-            '1523573665982058557', // SubDirector General
-            '1523573834077180005', // Comisionado
-            '1523574021344591916', // Sub Comisionado
-            '1523574454699954337', // Mayor
-            '1523574599907016765', // Capitán
-            '1523574922327101500', // Teniente
-            '1523575112270614538', // Subteniente
+            '1523573395978190848',
+            '1523573665982058557',
+            '1523573834077180005',
+            '1523574021344591916',
+            '1523574454699954337',
+            '1523574599907016765',
+            '1523574922327101500',
+            '1523575112270614538',
         ],
 
         canales: {
@@ -131,6 +134,7 @@ module.exports = {
             { n: 30, texto: '¿Por qué deberíamos escogerte a ti y no a otro postulante?', puntos: 0, estilo: 'Paragraph' },
         ],
     },
+
     placas: {
         rolesAutorizados: [
             '1523573395978190848', // Director General
@@ -151,8 +155,7 @@ module.exports = {
             '1523715087674769459': 'C', // U.C.A.N (Charlie)
             '1523715231728140358': 'E', // U.T.E (Echo)
             '1523715360560251042': 'F', // U.F.E.C (Foxtrot)
-            '1523715469889110067': 'L', // Lince (Lima)
+            '1523715469889110067': 'L', // Unidad Lince (Lima)
             '1523715607781048372': 'J', // D.I.J (Juliet)
-        },
-    },
-};
+            '1525773218638729256': 'X', // Fuerza ALFA (X-ray)
+            '1540766628495495280': 'P', // D.N.I.
