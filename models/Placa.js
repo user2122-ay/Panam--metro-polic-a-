@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const placaSchema = new mongoose.Schema({
     usuarioId: { type: String, required: true, unique: true },
     usuarioTag: String,
+    nombreRP: String,
     robloxUsuario: String,
     placa: { type: String, required: true },
     letra: String,
